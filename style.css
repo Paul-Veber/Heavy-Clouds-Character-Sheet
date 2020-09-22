@@ -32,7 +32,7 @@
   
   /* Body */
   .sheet-main {
-    background-image: url("https://raw.githubusercontent.com/Paul-Veber/Heavy-Clouds-Character-Sheet/master/otherBackground.jpg");
+    background-image: url("https://raw.githubusercontent.com/Paul-Veber/Heavy-Clouds-Character-Sheet/master/DarkWood.jpg");
     background-repeat: repeat;
   }
   
@@ -70,14 +70,14 @@
     
    .sheet-tabsContainer button {
      height: 30px;
-       border: 3px solid #fe8953;
-       color: #fe7b53;
-       background-color: #bd4521;
+       border: 3px solid #5f473c;
+       color: #d4b3a9;
+       background-color: #3b2a25;
   }
    .sheet-tabsContainer button:hover {
-       border-color: #fe8e86;
-       color: #fe9e86;
-       background-color: #b72b01;
+       border-color: #3a302f;
+       color: #d4b3a9;
+       background-color: #38241e;
   }
    .sheet-tabsContainer button[value="1"] {
        border-color: #fe86cf;
@@ -135,7 +135,7 @@
     border-color: #fdfdfd;;
     box-shadow: 4px 4px 0px #5a5a5a;
     border-radius: 10px;
-    background-color: rgb(154, 184, 190);
+    background-color: rgba(202, 204, 204, 0.486);
   }
   
   .sheet-rolltemplate-HC {
