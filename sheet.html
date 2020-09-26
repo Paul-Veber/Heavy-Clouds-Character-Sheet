@@ -78,22 +78,22 @@
           <div class="sheet-characContener">
             <div>
               <button name="roll_vigour" type="roll" class="sheet-charact roll"
-                value="&{template:HC} {{name=Vigueur}} {{skill=[[(@{vigour})d6>5]]}} {{max=@{vigour}}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Vigueur</button>
+                value="&{template:HC} {{name=Vigueur}} {{skill=[[(@{vigour}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=@{vigour}}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Vigueur</button>
               <input type="number" name="attr_vigour" value="0" min="0" />
             </div>
             <div>
               <button name="roll_agility" type="roll" class="sheet-charact roll"
-                value="&{template:HC} {{name=Agilité}} {{skill=[[(@{agility})d6>5]]}} {{max=@{agility}}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Agilité</button>
+                value="&{template:HC} {{name=Agilité}} {{skill=[[(@{agility}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=@{agility}}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Agilité</button>
               <input type="number" name="attr_agility" value="0" min="0" />
             </div>
             <div>
               <button name="roll_intelligence" type="roll" class="sheet-charact roll"
-                value="&{template:HC} {{name=Intelligence}} {{skill=[[(@{intelligence})d6>5]]}} {{max=@{intelligence}}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Intelligence</button>
+                value="&{template:HC} {{name=Intelligence}} {{skill=[[(@{intelligence}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=@{intelligence}}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Intelligence</button>
               <input type="number" name="attr_intelligence" value="0" min="0" />
             </div>
             <div>
               <button name="roll_spirit" type="roll" class="sheet-charact roll"
-                value="&{template:HC} {{name=Esprit}} {{skill=[[(@{spirit})d6>5]]}} {{max=@{spirit}}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Esprit</button>
+                value="&{template:HC} {{name=Esprit}} {{skill=[[(@{spirit}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=@{spirit}}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Esprit</button>
               <input type="number" name="attr_spirit" value="0" min="0" />
             </div>
           </div>
@@ -102,7 +102,6 @@
         <!--Traits rule section-->
         <div class="sheet-rulesTraits section">
           <div>
-            <p>- ignore tout les déMal pour 1C</p>
             <p>- relance pour 1C</p>
             <p>- +3 déBon pour 1C</p>
             <br>
@@ -135,7 +134,7 @@
         <div class="sheet-skillContener">
           <div class="sheet-skills">
             <button name="roll_pilot" type="roll" class="sheet-skill roll"
-              value="&{template:HC} {{name=Piloter}} {{skill=[[(@{characteristicPilot})d6>5]]}} {{max=[[@{characteristicPilot}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">
+              value="&{template:HC} {{name=Piloter}} {{skill=[[(@{characteristicPilot}+?{Spécialisation|non, [[0]]|oui, [[2]]}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicPilot}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">
               Piloter</button>
             <input type="number" name="attr_pilot" value="0" min="0" />
             <select name="attr_characteristicPilot">
@@ -145,21 +144,9 @@
               <option value="(@{spirit} + @{pilot})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_pilotSpe skillSpe">
-              <input type="text" name="attr_pilotSpe">
-              <select name="attr_pilotSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_pilotSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{pilotSpe}}} {{skill=[[(@{characteristicPilot}+@{pilotSpeSel})d6>5]]}} {{max=[[(@{characteristicPilot}+@{pilotSpeSel})]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button name="roll_tinker" type="roll" class="sheet-skill roll"
-              value="&{template:HC} {{name=Bidouiller}} {{skill=[[(@{characteristicTinker})d6>5]]}} {{max=[[@{characteristicTinker}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Bidouiller</button>
+              value="&{template:HC} {{name=Bidouiller}} {{skill=[[(@{characteristicTinker}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicTinker}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Bidouiller</button>
             <input type="number" name="attr_tinker" value="0" min="0" />
             <select name="attr_characteristicTinker">
               <option value="(@{vigour} + @{tinker})">Vigueur</option>
@@ -168,21 +155,9 @@
               <option value="(@{spirit} + @{tinker})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_tinkerSpe skillSpe">
-              <input type="text" name="attr_tinkerSpe">
-              <select name="attr_tinkerSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_tinkerSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{tinkerSpe}}} {{skill=[[(@{characteristicTinker}+@{tinkerSpeSel})d6>5]]}} {{max=[[@{characteristicTinker}+@{tinkerSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_convince" class="sheet-skill roll"
-              value="&{template:HC} {{name=Convaincre}} {{skill=[[(@{characteristicConvince})d6>5]]}} {{max=[[@{characteristicConvince}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Convaincre</button>
+              value="&{template:HC} {{name=Convaincre}} {{skill=[[(@{characteristicConvince}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicConvince}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Convaincre</button>
             <input type="number" name="attr_convince" value="0" min="0" />
             <select name="attr_characteristicConvince">
               <option value="(@{vigour} + @{convince})">Vigueur</option>
@@ -191,21 +166,9 @@
               <option value="(@{spirit} + @{convince})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_convinceSpe skillSpe">
-              <input type="text" name="attr_convinceSpe">
-              <select name="attr_convinceSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_convinceSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{convinceSpe}}} {{skill=[[(@{characteristicConvince}+@{convinceSpeSel})d6>5]]}} {{max=[[@{characteristicConvince}+@{convinceSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_Charisme" class="sheet-skill roll"
-              value="&{template:HC} {{name=Charisme}} {{skill=[[(@{characteristicCharisme})d6>5]]}} {{max=[[@{characteristicCharisme}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Charisme</button>
+              value="&{template:HC} {{name=Charisme}} {{skill=[[(@{characteristicCharisme}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicCharisme}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Charisme</button>
             <input type="number" name="attr_Charisme" value="0" min="0" />
             <select name="attr_characteristicCharisme">
               <option value="(@{vigour} + @{Charisme})">Vigueur</option>
@@ -214,21 +177,9 @@
               <option value="(@{spirit} + @{Charisme})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_CharismeSpe skillSpe">
-              <input type="text" name="attr_CharismeSpe">
-              <select name="attr_CharismeSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_CharismeSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{CharismeSpe}}} {{skill=[[(@{characteristicCharisme}+@{CharismeSpeSel})d6>5]]}} {{max=[[@{characteristicCharisme}+@{CharismeSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_force" class="sheet-skill roll"
-              value="&{template:HC} {{name=Forcer}} {{skill=[[(@{characteristicForce})d6>5]]}} {{max=[[@{characteristicForce}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Forcer</button>
+              value="&{template:HC} {{name=Forcer}} {{skill=[[(@{characteristicForce}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicForce}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Forcer</button>
             <input type="number" name="attr_force" value="0" min="0" />
             <select name="attr_characteristicForce">
               <option value="(@{vigour} + @{force})">Vigueur</option>
@@ -237,21 +188,9 @@
               <option value="(@{spirit} + @{force})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_forceSpe skillSpe">
-              <input type="text" name="attr_forceSpe">
-              <select name="attr_forceSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_forceSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{forceSpe}}} {{skill=[[(@{characteristicForce}+@{forceSpeSel})d6>5]]}} {{max=[[@{characteristicForce}+@{forceSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_force" class="sheet-skill roll"
-              value="&{template:HC} {{name=Finesse}} {{skill=[[(@{characteristicFinesse})d6>5]]}} {{max=[[@{characteristicFinesse}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Finesse</button>
+              value="&{template:HC} {{name=Finesse}} {{skill=[[(@{characteristicFinesse}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicFinesse}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Finesse</button>
             <input type="number" name="attr_Finesse" value="0" min="0" />
             <select name="attr_characteristicFinesse">
               <option value="(@{vigour} + @{Finesse})">Vigueur</option>
@@ -260,21 +199,9 @@
               <option value="(@{spirit} + @{Finesse})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_FinesseSpe">
-              <input type="text" name="attr_FinesseSpe">
-              <select name="attr_FinesseSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_FinesseSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{FinesseSpe}}} {{skill=[[(@{characteristicFinesse}+@{FinesseSpeSel})d6>5]]}} {{max=[[@{characteristicFinesse}+@{FinesseSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_endure" class="sheet-skill roll"
-              value="&{template:HC} {{name=Endurer}} {{skill=[[(@{characteristicEndure})d6>5]]}} {{max=[[@{characteristicEndure}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Endurer</button>
+              value="&{template:HC} {{name=Endurer}} {{skill=[[(@{characteristicEndure}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicEndure}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Endurer</button>
             <input type="number" name="attr_endure" value="0" min="0" />
             <select name="attr_characteristicEndure">
               <option value="(@{vigour} + @{force})">Vigueur</option>
@@ -283,21 +210,9 @@
               <option value="(@{spirit} + @{force})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_endureSpe skillSpe">
-              <input type="text" name="attr_endureSpe">
-              <select name="attr_endureSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_endureSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{endureSpe}}} {{skill=[[(@{characteristicEndure}+@{endureSpeSel})d6>5]]}} {{max=[[@{characteristicEndure}+@{endureSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_Move" class="sheet-skill roll"
-              value="&{template:HC} {{name=Se Mouvoir}} {{skill=[[(@{characteristicMove})d6>5]]}}{{max=[[@{characteristicMove}]]}}  {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Se
+              value="&{template:HC} {{name=Se Mouvoir}} {{skill=[[(@{characteristicMove}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}}{{max=[[@{characteristicMove}]]}}  {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Se
               Mouvoir</button>
             <input type="number" name="attr_Move" value="0" min="0" />
             <select name="attr_characteristicMove">
@@ -307,21 +222,9 @@
               <option value="(@{spirit} + @{Move})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_MoveSpe">
-              <input type="text" name="attr_MoveSpe">
-              <select name="attr_MoveSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_MoveSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{MoveSpe}}} {{skill=[[(@{characteristicMove}+@{MoveSpeSel})d6>5]]}} {{max=[[@{characteristicMove}+@{MoveSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_discipline" class="sheet-skill roll"
-              value="&{template:HC} {{name=Discipline}} {{skill=[[(@{characteristicdiscipline})d6>5]]}} {{max=[[@{characteristicdiscipline}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">Discipline</button>
+              value="&{template:HC} {{name=Discipline}} {{skill=[[(@{characteristicdiscipline}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicdiscipline}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">Discipline</button>
             <input type="number" name="attr_discipline" value="0" min="0" />
             <select name="attr_characteristicdiscipline">
               <option value="(@{vigour} + @{discipline})">Vigueur</option>
@@ -330,21 +233,9 @@
               <option value="(@{spirit} + @{discipline})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_disciplineSpe">
-              <input type="text" name="attr_disciplineSpe">
-              <select name="attr_disciplineSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_disciplineSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{disciplineSpe}}} {{skill=[[(@{characteristicdiscipline}+@{disciplineSpeSel})d6>5]]}} {{max=[[@{characteristicdiscipline}+@{disciplineSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_perceive" class="sheet-skill roll"
-              value="&{template:HC} {{name=Percevoir}} {{skill=[[(@{characteristicPerceive})d6>5]]}} {{max=[[@{characteristicPerceive}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">percevoir</button>
+              value="&{template:HC} {{name=Percevoir}} {{skill=[[(@{characteristicPerceive}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicPerceive}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">percevoir</button>
             <input type="number" name="attr_perceive" value="0" min="0" />
             <select name="attr_characteristicPerceive">
               <option value="(@{vigour} + @{perceive})">Vigueur</option>
@@ -353,21 +244,9 @@
               <option value="(@{spirit} + @{perceive})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_perceiveSpe skillSpe">
-              <input type="text" name="attr_perceiveSpe">
-              <select name="attr_perceiveSpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_perceiveSpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{perceiveSpe}}} {{skill=[[(@{characteristicPerceive}+@{perceiveSpeSel})d6>5]]}} {{max=[[@{characteristicPerceive}+@{perceiveSpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
           <div class="sheet-skills">
             <button type="roll" name="roll_study" class="sheet-skill roll"
-              value="&{template:HC} {{name=Etudier}} {{skill=[[(@{characteristicStudy})d6>5]]}} {{max=[[@{characteristicStudy}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">étudier</button>
+              value="&{template:HC} {{name=Etudier}} {{skill=[[(@{characteristicStudy}+?{Spécialisation|non, [[0]]|oui, [[2]]})d10>6cs>9]]}} {{max=[[@{characteristicStudy}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">étudier</button>
             <input type="number" name="attr_study" value="0" min="0" />
             <select name="attr_characteristicStudy">
               <option value="(@{vigour} + @{study})">Vigueur</option>
@@ -376,18 +255,17 @@
               <option value="(@{spirit} + @{study})">Esprit</option>
             </select>
           </div>
-          <div class="spe">
-            <h4>spécialisation</h4>
-            <fieldset class="repeating_studySpe skillSpe">
-              <input type="text" name="attr_studySpe">
-              <select name="attr_studySpeSel">
-                <option value="0">Basique</option>
-                <option value="2">Avancé (+2)</option>
-              </select>
-              <button type="roll" name="roll_studySpe" class="sheet-spe roll"
-                value="&{template:HC} {{name=@{studySpe}}} {{skill=[[(@{characteristicStudy}+@{studySpeSel})d6>5]]}} {{max=[[@{characteristicStudy}+@{studySpeSel}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}"></button>
-            </fieldset>
-          </div>
+        </div>
+        <div class="description section">
+          <h3>Spécialisation</h3>
+          <fieldset class="repeating_specialisation">
+            <div class="section">
+            <input type="text" class="inputText" name="attr_speName0" placeholder="vigilance" />
+            <input type="text" class="inputText" name="attr_speName1" placeholder="combat à main nue" />
+            <input type="text" class="inputText" name="attr_speName2" placeholder="Ingénierie naval" />
+            <input type="text" class="inputText" name="attr_speName3" placeholder="Courants aeriens" />
+            </div>
+          </fieldset>
         </div>
       </div>
   
@@ -474,7 +352,7 @@
           <div class="sheet-ressourcePoints section">
             <button type="roll" class="sheet-rollRessourcePoints" name="roll_ressourcePoints"
               class="sheet-ressourcePoints roll"
-              value="&{template:HC} {{name=Acquisition}} {{skill=[[(@{ressourcePoints}d6>5)+?{dépense}]]}} {{bonus=[[?{autres bonus|0}d6>5]]}} {{mallus=[[?{mallus dés|0}d6<2]]}}">points
+              value="&{template:HC} {{name=Acquisition}} {{skill=[[(@{ressourcePoints}d10>6cs>9)+?{dépense}]]}} {{bonus=[[?{autres bonus|0}d10>6cs>9]]}}">points
               de ressources</button>
             <input type="number" name="attr_ressourcePoints">
           </div>
