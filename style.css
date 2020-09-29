@@ -167,6 +167,10 @@
   }
   
   /* ressources section */
+  .sheet-ressourcesRow {
+    display: flex;
+    justify-content: space-around;
+  }
   .sheet-ressources>div {
     display: flex;
     justify-content: space-around;
